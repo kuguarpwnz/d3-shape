@@ -20,7 +20,7 @@ function link(curve) {
       context = null;
 
   function link() {
-    var buffer, argv = slice.call(arguments), s = source.apply(this, argv), t = target.apply(this, argv);
+    var buffer, argv = Array.apply(null, arguments), s = source.apply(this, argv), t = target.apply(this, argv);
     if (!context) context = buffer = path();
     curve(context, +x.apply(this, (argv[0] = s, argv)), +y.apply(this, argv), +x.apply(this, (argv[0] = t, argv)), +y.apply(this, argv));
     if (buffer) return context = null, buffer + "" || null;
